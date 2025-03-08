@@ -47,7 +47,7 @@ def generate_schedule():
 
     # 🤖 Call the OpenAI model to generate the schedule
     response = openai.ChatCompletion.create(
-        model="gpt-4",  # Ensure to use the correct model here
+        model="gpt-4",
         messages=[{"role": "system", "content": prompt}]
     )
 
