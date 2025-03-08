@@ -1,5 +1,5 @@
 import json
-import openai  # Use openai directly
+import requests
 from config import OPENROUTER_API_KEY, longitude, latitude
 
 # Placeholder imports (these functions will be implemented by your teammates)
@@ -37,25 +37,38 @@ def generate_schedule():
     Generate a detailed shift schedule for the upcoming week.
     """
 
-    # 🔗 OpenRouter API Setup (Using openai module directly)
-    openai.api_key = OPENROUTER_API_KEY  # Set your OpenRouter API key here
-
-    # Make the request to OpenRouter's chat API
-    response = openai.ChatCompletion.create(
-        model="deepseek/deepseek-r1-zero:free",  # Model name as per OpenRouter documentation
-        messages=[  # The messages the AI will respond to
+    # 🔗 OpenRouter API Setup with requests
+    url = "https://openrouter.ai/api/v1/chat/completions"  # Replace with the actual endpoint
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": "google/gemini-2.0-flash-thinking-exp:free",  # Model name as per OpenRouter documentation
+        "messages": [
             {
                 "role": "user",  # 'user' role indicates a prompt from the user
                 "content": prompt  # The question or message being asked
             }
         ]
-    )
+    }
 
-    # Extract the generated schedule from the response
-    schedule = response["choices"][0]["message"]["content"].strip()
+    # Make the API request
+    response = requests.post(url, headers=headers, json=payload)
 
-    # 💾 Save the generated schedule to a file
-    with open("data/schedule.json", "w") as f:
-        json.dump({"schedule": schedule}, f, indent=2)
+    # Check if the request was successful
+    if response.status_code == 200:
+        data = response.json()
 
-    return schedule
+        # Extract the generated schedule
+        schedule = data["choices"][0]["message"]
+
+        # 💾 Save the generated schedule to a file
+        with open("resources/data/schedule.json", "w") as f:
+            json.dump({"schedule": data}, f, indent=2)
+
+        return schedule
+    else:
+        # Handle errors (e.g., API call failure)
+        print(f"Error: {response.status_code} - {response.text}")
+        return None

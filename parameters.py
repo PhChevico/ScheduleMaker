@@ -11,7 +11,6 @@ def load_functioning_hours():
             data = json.load(file)
         return data["opening_hours"]
     except Exception as e:
-        print(f"Error reading the functioning hours file: {e}")
         return []
 
 
@@ -32,7 +31,6 @@ def get_weather_forecast_by_hour(latitude_value, longitude_value):
     functioning_hours = load_functioning_hours()
 
     if not functioning_hours:
-        print("No functioning hours available.")
         return {}
 
     # Get the day of the week for the next Monday
@@ -46,7 +44,6 @@ def get_weather_forecast_by_hour(latitude_value, longitude_value):
             break
 
     if not opening_time or not closing_time:
-        print(f"Operating hours for {current_day} not found.")
         return {}
 
     # Get the hourly forecast for the next Monday to Sunday period
@@ -60,24 +57,19 @@ def get_weather_forecast_by_hour(latitude_value, longitude_value):
     }
 
     # Log the request details
-    print(f"Requesting weather data for coordinates: {latitude_value}, {longitude_value}")
-    print(f"API URL: {base_url_weather}")
-    print(f"Parameters: {params}")
+
 
     try:
         response = requests.get(base_url_weather, params=params)
 
         # Log the status code and the response content
-        print(f"API Response Status Code: {response.status_code}")
         if response.status_code != 200:
-            print(f"Error: {response.text}")
             return {}
 
         data = response.json()
 
         # Check if 'hourly' data exists
         if "hourly" not in data:
-            print("Error: 'hourly' data not found in the API response.")
             return {}
 
         # Get the list of times, temperatures, and precipitation
@@ -108,7 +100,6 @@ def get_weather_forecast_by_hour(latitude_value, longitude_value):
         return weather_data
 
     except requests.exceptions.RequestException as e:
-        print(f"Request failed: {e}")
         return {}
 
 
@@ -118,7 +109,6 @@ def get_summarized_weather(latitude_value, longitude_value):
     raw_weather_data = get_weather_forecast_by_hour(latitude_value, longitude_value)
 
     if not raw_weather_data:
-        print("No weather data available.")
         return {}
 
     summarized_weather = {}
@@ -162,7 +152,3 @@ def get_summarized_weather(latitude_value, longitude_value):
 # Example usage: Antwerp, Belgium
 summary = get_summarized_weather(latitude, longitude)
 
-for day, shifts in summary.items():
-    print(f"Weather for {day}:")
-    for shift, values in shifts.items():
-        print(f"  {shift.capitalize()} - Temp: {values['temp']:.2f}°C, Precip: {values['precip']:.2f}mm")
