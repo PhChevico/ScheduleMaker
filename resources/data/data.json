@@ -1,0 +1,118 @@
+{
+  "business": {
+    "name": "Sunset Boho",
+    "location": "Antwerp"
+  },
+  "opening_hours": [
+    { "day": "Monday", "opening": "13:00", "closing": "21:00" },
+    { "day": "Tuesday", "opening": "13:00", "closing": "21:00" },
+    { "day": "Wednesday", "opening": "13:00", "closing": "21:00" },
+    { "day": "Thursday", "opening": "13:00", "closing": "21:00" },
+    { "day": "Friday", "opening": "10:00", "closing": "23:00" },
+    { "day": "Saturday", "opening": "10:00", "closing": "23:00" },
+    { "day": "Sunday", "opening": "10:00", "closing": "23:00" }
+  ],
+  "shifts": [
+    { "day": "Monday", "type": "afternoon", "start": "13:00", "end": "21:00" },
+    { "day": "Tuesday", "type": "afternoon", "start": "13:00", "end": "21:00" },
+    { "day": "Wednesday", "type": "afternoon", "start": "13:00", "end": "21:00" },
+    { "day": "Thursday", "type": "afternoon", "start": "13:00", "end": "21:00" },
+    { "day": "Friday", "type": "morning", "start": "10:00", "end": "17:00" },
+    { "day": "Friday", "type": "evening", "start": "17:00", "end": "23:00" },
+    { "day": "Saturday", "type": "morning", "start": "10:00", "end": "17:00" },
+    { "day": "Saturday", "type": "evening", "start": "17:00", "end": "23:00" },
+    { "day": "Sunday", "type": "morning", "start": "10:00", "end": "17:00" },
+    { "day": "Sunday", "type": "evening", "start": "17:00", "end": "23:00" }
+  ],
+  "employees": {
+    "John Doe": {
+      "role": "Waiter",
+      "contract_hours": 40,
+      "availability": [
+        { "day": "Monday", "time": "afternoon" },
+        { "day": "Tuesday", "time": "afternoon" }
+      ]
+    },
+    "Jane Smith": {
+      "role": "Chef",
+      "contract_hours": 35,
+      "availability": [
+        { "day": "Friday", "time": "morning" },
+        { "day": "Friday", "time": "evening" },
+        { "day": "Saturday", "time": "morning" }
+      ]
+    },
+    "Michael Johnson": {
+      "role": "Bartender",
+      "contract_hours": 30,
+      "availability": [
+        { "day": "Thursday", "time": "afternoon" },
+        { "day": "Friday", "time": "evening" }
+      ]
+    },
+    "Emily Davis": {
+      "role": "Host",
+      "contract_hours": 25,
+      "availability": [
+        { "day": "Wednesday", "time": "afternoon" },
+        { "day": "Saturday", "time": "morning" }
+      ]
+    },
+    "Chris Brown": {
+      "role": "Waiter",
+      "contract_hours": 20,
+      "availability": [
+        { "day": "Monday", "time": "afternoon" },
+        { "day": "Tuesday", "time": "afternoon" }
+      ]
+    },
+    "Sophia Martinez": {
+      "role": "Cook",
+      "contract_hours": 38,
+      "availability": [
+        { "day": "Sunday", "time": "morning" },
+        { "day": "Sunday", "time": "evening" }
+      ]
+    },
+    "Daniel Lee": {
+      "role": "Bartender",
+      "contract_hours": 32,
+      "availability": [
+        { "day": "Friday", "time": "evening" },
+        { "day": "Saturday", "time": "evening" }
+      ]
+    },
+    "Olivia White": {
+      "role": "Waiter",
+      "contract_hours": 28,
+      "availability": [
+        { "day": "Thursday", "time": "afternoon" },
+        { "day": "Saturday", "time": "morning" }
+      ]
+    },
+    "Ethan Clark": {
+      "role": "Chef",
+      "contract_hours": 40,
+      "availability": [
+        { "day": "Wednesday", "time": "afternoon" },
+        { "day": "Sunday", "time": "morning" }
+      ]
+    },
+    "Ava Lewis": {
+      "role": "Host",
+      "contract_hours": 20,
+      "availability": [
+        { "day": "Tuesday", "time": "afternoon" },
+        { "day": "Friday", "time": "morning" }
+      ]
+    },
+    "William Walker": {
+      "role": "Waiter",
+      "contract_hours": 35,
+      "availability": [
+        { "day": "Saturday", "time": "morning" },
+        { "day": "Sunday", "time": "morning" }
+      ]
+    }
+  }
+}

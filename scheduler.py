@@ -4,7 +4,7 @@ from config import OPENROUTER_API_KEY
 
 # Placeholder imports (these functions will be implemented by your teammates)
 from weather_events import get_summarized_weather, get_local_events
-from data_handler import load_business_data  # This will load JSON data
+from resources.data.dataloader import load_business_data  # This will load JSON data
 
 
 # 🤖 AI-Powered Schedule Generation
@@ -26,7 +26,7 @@ def generate_schedule():
     {json.dumps(business_data['opening_hours'], indent=2)}
 
     **Weather Forecast (Shift-wise Summary):** 
-    {json.dumps(weather_forecast, indent=2)}  # e.g., {"Monday": {"morning": {"temp": 15, "precip": 0.0}, "afternoon": {...}}}
+    {json.dumps(weather_forecast, indent=2)}  # e.g., "Monday": {"morning": {"temp": 15, "precip": 0.0}, "afternoon": {...}}
 
     **Upcoming Local Events:** 
     {json.dumps(local_events, indent=2)}
