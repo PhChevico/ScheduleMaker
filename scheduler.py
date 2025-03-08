@@ -1,10 +1,16 @@
 import json
 import openai
-from config import OPENROUTER_API_KEY
+from openai import OpenAI
+from config import OPENROUTER_API_KEY, longitude, latitude
 
 # Placeholder imports (these functions will be implemented by your teammates)
-from weather_events import get_summarized_weather, get_local_events
+from parameters import get_summarized_weather
 from resources.data.dataloader import load_business_data  # This will load JSON data
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",  # URL for OpenRouter API
+    api_key=OPENROUTER_API_KEY,  # Replace with your OpenRouter API key
+)
 
 
 # 🤖 AI-Powered Schedule Generation
@@ -15,8 +21,7 @@ def generate_schedule():
     business_data = load_business_data()
 
     # 🌦️ Get external factors (weather, events)
-    weather_forecast = get_summarized_weather()  # Fetch summarized weather data for each shift
-    local_events = get_local_events()  # Example: {"Saturday": "Food Festival"}
+    weather_forecast = get_summarized_weather(latitude, longitude)  # Fetch summarized weather data for each shift
 
     # 📝 Format prompt for AI
     prompt = f"""
@@ -26,10 +31,7 @@ def generate_schedule():
     {json.dumps(business_data['opening_hours'], indent=2)}
 
     **Weather Forecast (Shift-wise Summary):** 
-    {json.dumps(weather_forecast, indent=2)}  # e.g., "Monday": {"morning": {"temp": 15, "precip": 0.0}, "afternoon": {...}}
-
-    **Upcoming Local Events:** 
-    {json.dumps(local_events, indent=2)}
+    {json.dumps(weather_forecast, indent=2)}  # e.g., "Monday": {{"morning": {{"temp": 15, "precip": 0.0}}, "afternoon": {{...}}}}
 
     **Employees & Availability:** 
     {json.dumps(business_data['employees'], indent=2)}
@@ -45,14 +47,19 @@ def generate_schedule():
     # 🔗 OpenRouter API Setup
     openai.api_key = OPENROUTER_API_KEY
 
-    # 🤖 Call the OpenAI model to generate the schedule
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{"role": "system", "content": prompt}]
+    response = client.chat.completions.create(
+        model="deepseek/deepseek-r1-zero:free",  # Model name as per OpenRouter documentation
+        messages=[  # The messages the AI will respond to
+            {
+                "role": "user",  # 'user' role indicates a prompt from the user
+                "content": prompt  # The question or message being asked
+            }
+        ]
     )
 
+
     # Extract the generated schedule
-    schedule = response["choices"][0]["message"]["content"]
+    schedule = response["choices"][0]["message"]["content"].strip()
 
     # 💾 Save the generated schedule to a file
     with open("data/schedule.json", "w") as f:
