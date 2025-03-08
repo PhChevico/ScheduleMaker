@@ -1,4 +1,4 @@
-openai==1.2.3  # Adjust to latest stable version if needed
+openai==1.0.0  # Adjust to latest stable version if needed
 requests==2.32.0
 json5==0.9.14
 pandas==2.2.2

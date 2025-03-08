@@ -1,17 +1,10 @@
 import json
-import openai
-from openai import OpenAI
+import openai  # Use openai directly
 from config import OPENROUTER_API_KEY, longitude, latitude
 
 # Placeholder imports (these functions will be implemented by your teammates)
 from parameters import get_summarized_weather
 from resources.data.dataloader import load_business_data  # This will load JSON data
-
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",  # URL for OpenRouter API
-    api_key=OPENROUTER_API_KEY,  # Replace with your OpenRouter API key
-)
-
 
 # 🤖 AI-Powered Schedule Generation
 def generate_schedule():
@@ -44,10 +37,11 @@ def generate_schedule():
     Generate a detailed shift schedule for the upcoming week.
     """
 
-    # 🔗 OpenRouter API Setup
-    openai.api_key = OPENROUTER_API_KEY
+    # 🔗 OpenRouter API Setup (Using openai module directly)
+    openai.api_key = OPENROUTER_API_KEY  # Set your OpenRouter API key here
 
-    response = client.chat.completions.create(
+    # Make the request to OpenRouter's chat API
+    response = openai.ChatCompletion.create(
         model="deepseek/deepseek-r1-zero:free",  # Model name as per OpenRouter documentation
         messages=[  # The messages the AI will respond to
             {
@@ -57,8 +51,7 @@ def generate_schedule():
         ]
     )
 
-
-    # Extract the generated schedule
+    # Extract the generated schedule from the response
     schedule = response["choices"][0]["message"]["content"].strip()
 
     # 💾 Save the generated schedule to a file
