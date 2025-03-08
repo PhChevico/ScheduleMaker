@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "business": {
     "name": "Sunset Boho",
     "location": "Antwerp"
@@ -116,3 +117,43 @@
     }
   }
 }
+=======
+  "opening_hours": [
+    {
+      "day": "Monday",
+      "opening": "10:00",
+      "closing": "21:00"
+    },
+    {
+      "day": "Tuesday",
+      "opening": "10:00",
+      "closing": "21:00"
+    },
+    {
+      "day": "Wednesday",
+      "opening": "10:00",
+      "closing": "21:00"
+    },
+    {
+      "day": "Thursday",
+      "opening": "10:00",
+      "closing": "21:00"
+    },
+    {
+      "day": "Friday",
+      "opening": "10:00",
+      "closing": "21:00"
+    },
+    {
+      "day": "Saturday",
+      "opening": "10:00",
+      "closing": "21:00"
+    },
+    {
+      "day": "Sunday",
+      "opening": "10:00",
+      "closing": "21:00"
+    }
+  ]
+}
+>>>>>>> 372edb1a91f765e3c6cfa85cc29ef374fe4d649b
