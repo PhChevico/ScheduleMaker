@@ -4,3 +4,4 @@ json5==0.9.14
 pandas==2.2.2
 numpy==1.26.4
 openrouter==1.0.0
+sendgrid~=6.11.0

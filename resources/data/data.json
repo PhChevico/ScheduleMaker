@@ -4,24 +4,41 @@
     "location": "Antwerp"
   },
   "opening_hours": [
-    { "day": "Monday", "opening": "13:00", "closing": "21:00" },
-    { "day": "Tuesday", "opening": "13:00", "closing": "21:00" },
-    { "day": "Wednesday", "opening": "13:00", "closing": "21:00" },
-    { "day": "Thursday", "opening": "13:00", "closing": "21:00" },
-    { "day": "Friday", "opening": "10:00", "closing": "23:00" },
-    { "day": "Saturday", "opening": "10:00", "closing": "23:00" },
-    { "day": "Sunday", "opening": "10:00", "closing": "23:00" }
+    { "day": "Monday", "opening": "08:00", "closing": "21:00" },
+    { "day": "Tuesday", "opening": "08:00", "closing": "21:00" },
+    { "day": "Wednesday", "opening": "08:00", "closing": "21:00" },
+    { "day": "Thursday", "opening": "08:00", "closing": "21:00" },
+    { "day": "Friday", "opening": "08:00", "closing": "23:00" },
+    { "day": "Saturday", "opening": "08:00", "closing": "23:00" },
+    { "day": "Sunday", "opening": "08:00", "closing": "23:00" }
   ],
   "shifts": [
-    { "day": "Monday", "type": "afternoon", "start": "13:00", "end": "21:00" },
-    { "day": "Tuesday", "type": "afternoon", "start": "13:00", "end": "21:00" },
-    { "day": "Wednesday", "type": "afternoon", "start": "13:00", "end": "21:00" },
-    { "day": "Thursday", "type": "afternoon", "start": "13:00", "end": "21:00" },
-    { "day": "Friday", "type": "morning", "start": "10:00", "end": "17:00" },
+    { "day": "Monday", "type": "morning", "start": "08:00", "end": "12:00" },
+    { "day": "Monday", "type": "afternoon", "start": "12:00", "end": "17:00" },
+    { "day": "Monday", "type": "evening", "start": "17:00", "end": "21:00" },
+
+    { "day": "Tuesday", "type": "morning", "start": "08:00", "end": "12:00" },
+    { "day": "Tuesday", "type": "afternoon", "start": "12:00", "end": "17:00" },
+    { "day": "Tuesday", "type": "evening", "start": "17:00", "end": "21:00" },
+
+    { "day": "Wednesday", "type": "morning", "start": "08:00", "end": "12:00" },
+    { "day": "Wednesday", "type": "afternoon", "start": "12:00", "end": "17:00" },
+    { "day": "Wednesday", "type": "evening", "start": "17:00", "end": "21:00" },
+
+    { "day": "Thursday", "type": "morning", "start": "08:00", "end": "12:00" },
+    { "day": "Thursday", "type": "afternoon", "start": "12:00", "end": "17:00" },
+    { "day": "Thursday", "type": "evening", "start": "17:00", "end": "21:00" },
+
+    { "day": "Friday", "type": "morning", "start": "08:00", "end": "12:00" },
+    { "day": "Friday", "type": "afternoon", "start": "12:00", "end": "17:00" },
     { "day": "Friday", "type": "evening", "start": "17:00", "end": "23:00" },
-    { "day": "Saturday", "type": "morning", "start": "10:00", "end": "17:00" },
+
+    { "day": "Saturday", "type": "morning", "start": "08:00", "end": "12:00" },
+    { "day": "Saturday", "type": "afternoon", "start": "12:00", "end": "17:00" },
     { "day": "Saturday", "type": "evening", "start": "17:00", "end": "23:00" },
-    { "day": "Sunday", "type": "morning", "start": "10:00", "end": "17:00" },
+
+    { "day": "Sunday", "type": "morning", "start": "08:00", "end": "12:00" },
+    { "day": "Sunday", "type": "afternoon", "start": "12:00", "end": "17:00" },
     { "day": "Sunday", "type": "evening", "start": "17:00", "end": "23:00" }
   ],
   "employees": {
@@ -29,89 +46,168 @@
       "role": "Waiter",
       "contract_hours": 40,
       "availability": [
+        { "day": "Monday", "time": "morning" },
         { "day": "Monday", "time": "afternoon" },
-        { "day": "Tuesday", "time": "afternoon" }
+        { "day": "Monday", "time": "evening" },
+        { "day": "Tuesday", "time": "afternoon" },
+        { "day": "Tuesday", "time": "evening" },
+        { "day": "Thursday", "time": "morning" },
+        { "day": "Thursday", "time": "afternoon" },
+        { "day": "Thursday", "time": "evening" },
+        { "day": "Saturday", "time": "morning" },
+        { "day": "Saturday", "time": "evening" }
       ]
     },
     "Jane Smith": {
       "role": "Chef",
-      "contract_hours": 35,
+      "contract_hours": 36,
       "availability": [
+        { "day": "Monday", "time": "morning" },
         { "day": "Friday", "time": "morning" },
         { "day": "Friday", "time": "evening" },
-        { "day": "Saturday", "time": "morning" }
+        { "day": "Saturday", "time": "morning" },
+        { "day": "Saturday", "time": "evening" },
+        { "day": "Sunday", "time": "morning" },
+        { "day": "Sunday", "time": "afternoon" }
       ]
     },
     "Michael Johnson": {
-      "role": "Bartender",
-      "contract_hours": 30,
+      "role": "Waiter",
+      "contract_hours": 32,
       "availability": [
+        { "day": "Wednesday", "time": "morning" },
         { "day": "Thursday", "time": "afternoon" },
-        { "day": "Friday", "time": "evening" }
+        { "day": "Friday", "time": "evening" },
+        { "day": "Saturday", "time": "evening" },
+        { "day": "Sunday", "time": "evening" }
       ]
     },
     "Emily Davis": {
-      "role": "Host",
-      "contract_hours": 25,
+      "role": "Chef",
+      "contract_hours": 28,
       "availability": [
+        { "day": "Tuesday", "time": "morning" },
         { "day": "Wednesday", "time": "afternoon" },
-        { "day": "Saturday", "time": "morning" }
+        { "day": "Saturday", "time": "morning" },
+        { "day": "Sunday", "time": "morning" },
+        { "day": "Sunday", "time": "afternoon" }
       ]
     },
     "Chris Brown": {
       "role": "Waiter",
-      "contract_hours": 20,
+      "contract_hours": 24,
       "availability": [
+        { "day": "Monday", "time": "morning" },
         { "day": "Monday", "time": "afternoon" },
-        { "day": "Tuesday", "time": "afternoon" }
-      ]
-    },
-    "Sophia Martinez": {
-      "role": "Cook",
-      "contract_hours": 38,
-      "availability": [
-        { "day": "Sunday", "time": "morning" },
-        { "day": "Sunday", "time": "evening" }
-      ]
-    },
-    "Daniel Lee": {
-      "role": "Bartender",
-      "contract_hours": 32,
-      "availability": [
-        { "day": "Friday", "time": "evening" },
-        { "day": "Saturday", "time": "evening" }
-      ]
-    },
-    "Olivia White": {
-      "role": "Waiter",
-      "contract_hours": 28,
-      "availability": [
+        { "day": "Tuesday", "time": "morning" },
+        { "day": "Tuesday", "time": "afternoon" },
         { "day": "Thursday", "time": "afternoon" },
         { "day": "Saturday", "time": "morning" }
       ]
     },
-    "Ethan Clark": {
+    "Sophia Martinez": {
       "role": "Chef",
-      "contract_hours": 40,
+      "contract_hours": 38,
       "availability": [
-        { "day": "Wednesday", "time": "afternoon" },
-        { "day": "Sunday", "time": "morning" }
+        { "day": "Sunday", "time": "morning" },
+        { "day": "Sunday", "time": "evening" },
+        { "day": "Saturday", "time": "morning" },
+        { "day": "Friday", "time": "morning" },
+        { "day": "Saturday", "time": "afternoon" },
+        { "day": "Friday", "time": "afternoon" }
       ]
     },
-    "Ava Lewis": {
-      "role": "Host",
-      "contract_hours": 20,
+    "Daniel Lee": {
+      "role": "Waiter",
+      "contract_hours": 32,
+      "availability": [
+        { "day": "Monday", "time": "morning" },
+        { "day": "Friday", "time": "evening" },
+        { "day": "Saturday", "time": "evening" },
+        { "day": "Sunday", "time": "evening" },
+        { "day": "Thursday", "time": "afternoon" },
+        { "day": "Thursday", "time": "evening" }
+      ]
+    },
+    "Lily Adams": {
+      "role": "Chef",
+      "contract_hours": 16,
       "availability": [
         { "day": "Tuesday", "time": "afternoon" },
-        { "day": "Friday", "time": "morning" }
+        { "day": "Thursday", "time": "morning" },
+        { "day": "Friday", "time": "evening" }
       ]
     },
-    "William Walker": {
+    "Oliver Green": {
+      "role": "Chef",
+      "contract_hours": 32,
+      "availability": [
+        { "day": "Monday", "time": "afternoon" },
+        { "day": "Wednesday", "time": "morning" },
+        { "day": "Thursday", "time": "evening" },
+        { "day": "Wednesday", "time": "afternoon" },
+        { "day": "Thursday", "time": "afternoon" },
+        { "day": "Saturday", "time": "afternoon" }
+      ]
+    },
+    "Sophie Turner": {
+      "role": "Chef",
+      "contract_hours": 16,
+      "availability": [
+        { "day": "Wednesday", "time": "morning" },
+        { "day": "Thursday", "time": "afternoon" },
+        { "day": "Friday", "time": "afternoon" }
+      ]
+    },
+    "Ethan Harris": {
+      "role": "Waiter",
+      "contract_hours": 16,
+      "availability": [
+        { "day": "Monday", "time": "evening" },
+        { "day": "Tuesday", "time": "evening" },
+        { "day": "Saturday", "time": "afternoon" },
+        { "day": "Friday", "time": "afternoon" }
+      ]
+    },
+    "Isabella Wood": {
+      "role": "Waiter",
+      "contract_hours": 25,
+      "availability": [
+        { "day": "Tuesday", "time": "morning" },
+        { "day": "Thursday", "time": "evening" },
+        { "day": "Sunday", "time": "afternoon" },
+        { "day": "Sunday", "time": "evening" }
+      ]
+    },
+    "Philipe Souza": {
       "role": "Waiter",
       "contract_hours": 35,
+      "email": "scheduleMaker@gmx.com",
       "availability": [
         { "day": "Saturday", "time": "morning" },
+        { "day": "Saturday", "time": "evening" },
         { "day": "Sunday", "time": "morning" }
+      ]
+    },
+    "Henry Clark": {
+      "role": "Waiter",
+      "contract_hours": 16,
+      "availability": [
+        { "day": "Monday", "time": "afternoon" },
+        { "day": "Thursday", "time": "morning" },
+        { "day": "Saturday", "time": "evening" },
+        { "day": "Wednesday", "time": "afternoon" },
+        { "day": "Wednesday", "time": "evening" }
+      ]
+    },
+    "Grace Miller": {
+      "role": "Waiter",
+      "contract_hours": 16,
+      "availability": [
+        { "day": "Wednesday", "time": "afternoon" },
+        { "day": "Friday", "time": "morning" },
+        { "day": "Sunday", "time": "morning" },
+        { "day": "Wednesday", "time": "evening" }
       ]
     }
   }

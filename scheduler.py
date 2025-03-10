@@ -1,23 +1,23 @@
 import json
 import requests
 from config import OPENROUTER_API_KEY, longitude, latitude
-
-# Placeholder imports (these functions will be implemented by your teammates)
 from parameters import get_summarized_weather
-from resources.data.dataloader import load_business_data  # This will load JSON data
+from resources.data.dataloader import load_business_data
 
-# 🤖 AI-Powered Schedule Generation
-def generate_schedule():
+SCHEDULE_FILE = "resources/data/schedule.json"
+
+def generate_schedule(additional_prompt=""):
     """Generates a weekly employee work schedule based on business data, weather, and events."""
 
-    # 🏢 Load business data (JSON)
+    # 🏢 Load business data
     business_data = load_business_data()
 
     # 🌦️ Get external factors (weather, events)
-    weather_forecast = get_summarized_weather(latitude, longitude)  # Fetch summarized weather data for each shift
+    weather_forecast = get_summarized_weather(latitude, longitude)
 
-    # 📝 Format prompt for AI
-    prompt = f"""
+    # 📝 Format the base prompt
+    base_prompt = f"""
+    Please forget anything you have been told up until now.
     You are an AI assistant creating a weekly employee work schedule for {business_data['business']['name']} in {business_data['business']['location']}.
 
     **Business Hours:** 
@@ -29,26 +29,43 @@ def generate_schedule():
     **Employees & Availability:** 
     {json.dumps(business_data['employees'], indent=2)}
 
-    **Rules:** 
-    - Assign shifts fairly based on availability and contract hours.
-    - Prioritize extra staffing on busy days (good weather or big events).
-    - Ensure compliance with working hours.
+   Rules:
 
-    Generate a detailed shift schedule for the upcoming week.
+Each employee has individual contract hours. Ensure the total hours each employee works are as close as possible to their contract hours, but do not over-schedule any employee.
+Assign employees based on their availability. Some employees may be available for certain shifts more than others.
+The number of employees assigned to each shift may vary based on:
+Employee availability
+The weather forecast (e.g., higher demand on cold/rainy days might require more employees)
+Business needs (based on opening hours and traffic/expected demand)
+
+Distribute the shifts fairly, ensuring that no employee is overburdened or underutilized. Some shifts may require fewer employees, while others may need more.
+Every shift requires at least one chef and two waiters.
+If an employee has a preference for certain shifts, consider that in the scheduling if possible, but prioritize fairness and contract hours.
+Generate a detailed shift schedule for the upcoming week, with the following format:
+
+Shift Schedule
+
+The columns should represent the days of the week (Monday, Tuesday, Wednesday, etc.).
+The rows should represent the shift times (Morning, Afternoon, Evening).
+For each shift, list the employees assigned to that shift. The number of employees per shift can vary based on business needs and availability, but try to match the number of employees to the business's expected requirements.
+Please only output the schedule in markdown, do not include any other text.
     """
 
+    # 🏗️ Combine base prompt with additional user input
+    combined_prompt = f"{base_prompt}\n\n{additional_prompt}".strip()
+
     # 🔗 OpenRouter API Setup with requests
-    url = "https://openrouter.ai/api/v1/chat/completions"  # Replace with the actual endpoint
+    url = "https://openrouter.ai/api/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
     }
     payload = {
-        "model": "google/gemini-2.0-flash-thinking-exp:free",  # Model name as per OpenRouter documentation
+        "model": "google/gemini-2.0-flash-thinking-exp:free",
         "messages": [
             {
-                "role": "user",  # 'user' role indicates a prompt from the user
-                "content": prompt  # The question or message being asked
+                "role": "user",
+                "content": combined_prompt
             }
         ]
     }
@@ -63,12 +80,11 @@ def generate_schedule():
         # Extract the generated schedule
         schedule = data["choices"][0]["message"]
 
-        # 💾 Save the generated schedule to a file
-        with open("resources/data/schedule.json", "w") as f:
+        # 💾 Save the new schedule
+        with open(SCHEDULE_FILE, "w", encoding="utf-8") as f:
             json.dump({"schedule": data}, f, indent=2)
 
         return schedule
     else:
-        # Handle errors (e.g., API call failure)
         print(f"Error: {response.status_code} - {response.text}")
         return None
