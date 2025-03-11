@@ -1,6 +1,6 @@
 import json
 import requests
-from config import OPENROUTER_API_KEY, longitude, latitude
+from config import OPENROUTER_API_KEY, LONGITUDE, LATITUDE
 from parameters import get_summarized_weather
 from resources.data.dataloader import load_business_data
 
@@ -13,7 +13,7 @@ def generate_schedule(additional_prompt=""):
     business_data = load_business_data()
 
     # 🌦️ Get external factors (weather, events)
-    weather_forecast = get_summarized_weather(latitude, longitude)
+    weather_forecast = get_summarized_weather(LATITUDE, LONGITUDE)
 
     # 📝 Format the base prompt
     base_prompt = f"""

@@ -1,7 +1,7 @@
 import requests
 import datetime
 import json
-from config import latitude, longitude, base_url_weather
+from config import LATITUDE, LONGITUDE, BASE_URL_WEATHER
 
 
 # Function to read the functioning hours from the JSON file
@@ -60,7 +60,7 @@ def get_weather_forecast_by_hour(latitude_value, longitude_value):
 
 
     try:
-        response = requests.get(base_url_weather, params=params)
+        response = requests.get(BASE_URL_WEATHER, params=params)
 
         # Log the status code and the response content
         if response.status_code != 200:
@@ -150,5 +150,5 @@ def get_summarized_weather(latitude_value, longitude_value):
 
 
 # Example usage: Antwerp, Belgium
-summary = get_summarized_weather(latitude, longitude)
+summary = get_summarized_weather(LATITUDE, LONGITUDE)
 

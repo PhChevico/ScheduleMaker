@@ -1,10 +1,10 @@
 {
   "schedule": {
-    "id": "gen-1741450989-P9Wtcp3H4qfliIQAoxFm",
+    "id": "gen-1741735096-CkehUbAEuP1daBmIW6VN",
     "provider": "Google AI Studio",
     "model": "google/gemini-2.0-flash-thinking-exp",
     "object": "chat.completion",
-    "created": 1741450989,
+    "created": 1741735096,
     "choices": [
       {
         "logprobs": null,
@@ -13,16 +13,16 @@
         "index": 0,
         "message": {
           "role": "assistant",
-          "content": "```markdown\nShift Schedule\n\n| Shift     | Monday                        | Tuesday                       | Wednesday                     | Thursday                      | Friday                        | Saturday                      | Sunday                        |\n| --------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |\n| **Morning**   | Jane Smith, Chris Brown, Daniel Lee | Emily Davis, Isabella Wood, Chris Brown | Oliver Green, Sophie Turner, Michael Johnson | Lily Adams, Henry Clark, John Doe | Jane Smith, Sophia Martinez, Grace Miller | Emily Davis, Jane Smith, Sophia Martinez, Philipe Souza, Chris Brown | Emily Davis, Jane Smith, Sophia Martinez, Grace Miller, Philipe Souza |\n| **Afternoon** | John Doe, Chris Brown, Oliver Green, Henry Clark | John Doe, Chris Brown, Lily Adams | Emily Davis, Oliver Green, Henry Clark, Grace Miller | John Doe, Oliver Green, Chris Brown, Michael Johnson, Sophie Turner, Daniel Lee | Sophia Martinez, Sophie Turner, Ethan Harris | Sophia Martinez, Oliver Green, Ethan Harris | Emily Davis, Isabella Wood, Oliver Green |\n| **Evening**   | John Doe, Ethan Harris, Daniel Lee | John Doe, Ethan Harris | Henry Clark, Grace Miller | John Doe, Oliver Green, Isabella Wood, Daniel Lee | Jane Smith, Michael Johnson, Lily Adams, Ethan Harris, Daniel Lee | Jane Smith, Michael Johnson, Philipe Souza, Henry Clark, Daniel Lee | Michael Johnson, Isabella Wood, Philipe Souza, Daniel Lee |\n\n```",
+          "content": "```markdown\n## Shift Schedule\n\n| Day       | Morning (08:00 - 14:00) | Afternoon (14:00 - 20:00) | Evening (20:00 - Close) |\n| --------- | ----------------------- | ------------------------ | ------------------------ |\n| **Monday**    | Chef: Jane Smith        | Chef: Oliver Green        | Chef: Sophia Martinez      |\n|             | Waiter: John Doe        | Waiter: Henry Clark       | Waiter: John Doe         |\n|             | Waiter: Chris Brown       | Waiter: Grace Miller      | Waiter: Daniel Lee        |\n|             | Waiter: Daniel Lee      | Waiter: Ethan Harris      |                          |\n| **Tuesday**   | Chef: Emily Davis       | Chef: Lily Adams          | Chef: Jane Smith         |\n|             | Waiter: Isabella Wood   | Waiter: Chris Brown       | Waiter: John Doe         |\n|             | Waiter: Chris Brown       | Waiter: Sophie Turner     | Waiter: Ethan Harris      |\n|             |                         | Waiter: John Doe          |                          |\n| **Wednesday** | Chef: Sophie Turner     | Chef: Emily Davis         | Chef: Oliver Green        |\n|             | Waiter: Michael Johnson   | Waiter: Oliver Green      | Waiter: Henry Clark       |\n|             |                         | Waiter: Henry Clark       | Waiter: Grace Miller      |\n|             |                         | Waiter: Grace Miller      |                          |\n| **Thursday**  | Chef: Lily Adams        | Chef: Sophie Turner       | Chef: Emily Davis         |\n|             | Waiter: Henry Clark       | Waiter: Michael Johnson   | Waiter: Daniel Lee        |\n|             | Waiter: John Doe        | Waiter: Chris Brown       | Waiter: Isabella Wood   |\n|             |                         | Waiter: Oliver Green      | Waiter: John Doe          |\n| **Friday**    | Chef: Jane Smith        | Chef: Sophia Martinez      | Chef: Lily Adams          |\n|             | Waiter: Grace Miller      | Waiter: Sophie Turner     | Waiter: Michael Johnson   |\n|             | Waiter: Philipe Souza     | Waiter: Ethan Harris      | Waiter: Daniel Lee        |\n|             |                         | Waiter: Ethan Harris      |                          |\n| **Saturday**  | Chef: Emily Davis       | Chef: Sophia Martinez      | Chef: Jane Smith         |\n|             | Waiter: Chris Brown       | Waiter: Oliver Green      | Waiter: Philipe Souza     |\n|             | Waiter: Philipe Souza     | Waiter: Ethan Harris      | Waiter: Michael Johnson   |\n|             | Waiter: John Doe        |                         | Waiter: Henry Clark       |\n| **Sunday**    | Chef: Sophia Martinez      | Chef: Emily Davis         | Chef: Jane Smith         |\n|             | Waiter: Grace Miller      | Waiter: Isabella Wood   | Waiter: Daniel Lee        |\n|             | Waiter: Philipe Souza     | Waiter: John Doe          | Waiter: Isabella Wood   |\n|             | Waiter: Michael Johnson   |                         | Waiter: Michael Johnson   |\n```",
           "refusal": null,
           "reasoning": null
         }
       }
     ],
     "usage": {
-      "prompt_tokens": 3979,
-      "completion_tokens": 321,
-      "total_tokens": 4300
+      "prompt_tokens": 4140,
+      "completion_tokens": 720,
+      "total_tokens": 4860
     }
   }
 }

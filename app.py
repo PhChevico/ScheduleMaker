@@ -4,6 +4,7 @@ import scheduler
 import markdown
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email, To, Content
+
 app = Flask(__name__)
 
 SCHEDULE_FILE = './resources/data/schedule.json'
@@ -71,6 +72,7 @@ def index():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weekly Schedule - Sunset Boho</title>
     <style>
         body { 
@@ -160,10 +162,10 @@ def index():
         <br>
         <input type="submit" value="Update Schedule">
     </form>
-    
-    <button>
-    <input type="submit" value="Send Schedule Email">
-    </button>
+
+    <form method="POST">
+        <input type="submit" name="send_email" value="Send Schedule Email">
+    </form>
 
     <div class="schedule-container">
         <h3>Current Schedule:</h3>
@@ -173,7 +175,6 @@ def index():
     </div>
 </body>
 </html>
-
     ''', schedule_html=schedule_html)
 
 
