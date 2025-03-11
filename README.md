@@ -1,8 +1,8 @@
 # ScheduleMaker
 
 ## Overview
-ScheduleMaker is an intelligent, agentic AI designed to optimize employee scheduling by analyzing various factors such as employee availability, weather conditions, local events, and business needs. It ensures optimal workforce distribution while reducing scheduling conflicts and inefficiencies.
-Developed in just 7 hours during a hackathon.
+ScheduleMaker is an intelligent, agentic AI designed to optimize employee scheduling by analyzing various factors such as employee availability, weather conditions, local events, and business needs. It ensures optimal workforce distribution while reducing scheduling conflicts and inefficiencies. 
+Developed in just 7 hours during a hackathon, the project was created by second-year computer science students who quickly adapted to new tools to bring it to life.
 
 ## Features
 - **AI-Driven Scheduling** – Automatically generates employee schedules based on real-time data.
