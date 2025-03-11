@@ -6,7 +6,7 @@ __pycache__/
 # Ignore environment files
 venv/
 env/
-config.env
+*.env
 
 
 # Ignore IDE files
